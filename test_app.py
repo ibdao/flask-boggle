@@ -38,3 +38,13 @@ class BoggleAppTestCase(TestCase):
         with self.client as client:
             ...
             # write a test for this route
+            response = client.post('/api/new-game',
+                                    data= games)
+             #html = response.get_data(as_text = True)
+            
+            self.assertEqual(response.status_code, 200)
+            self.assertTrue(response.is_json)
+
+
+
+

@@ -33,6 +33,11 @@ class WordList:
             >>> word = 'CAT'
             >>> wl.check_word(word)
             True
+
+            >>> wl = WordList("test_dictionary.txt")
+            >>> word = 'CXD'
+            >>> wl.check_word(word)
+            False
         """
 
 
