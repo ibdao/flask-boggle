@@ -41,10 +41,14 @@ class BoggleAppTestCase(TestCase):
             response = client.post('/api/new-game',
                                     data= games)
              #html = response.get_data(as_text = True)
-            
+
             self.assertEqual(response.status_code, 200)
             self.assertTrue(response.is_json)
 
+    def test_api_score_word(self):
+        """tests to see if word is valid"""
+        with app.test_client() as client:
+            gameId = client.post("api/new-game",json = games)
+            game = games[gameId]
 
-
-
+            board = game.get_random_board()
